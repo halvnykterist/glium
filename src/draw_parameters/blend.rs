@@ -178,6 +178,11 @@ pub enum LinearBlendingFactor {
     /// Multiply the source or destination component by `1.0` minus the alpha value of
     /// `Blend::const_value`.
     OneMinusConstantAlpha,
+
+    SourceOneColor,
+    SourceOneAlpha,
+    OneMinusSourceOneColor,
+    OneMinusSourceOneAlpha,
 }
 
 impl LinearBlendingFactor {
@@ -198,6 +203,10 @@ impl LinearBlendingFactor {
             LinearBlendingFactor::OneMinusConstantColor => gl::ONE_MINUS_CONSTANT_COLOR,
             LinearBlendingFactor::ConstantAlpha => gl::CONSTANT_ALPHA,
             LinearBlendingFactor::OneMinusConstantAlpha => gl::ONE_MINUS_CONSTANT_ALPHA,
+            LinearBlendingFactor::SourceOneColor => gl::SRC1_COLOR,
+            LinearBlendingFactor::SourceOneAlpha => gl::SRC1_ALPHA,
+            LinearBlendingFactor::OneMinusSourceOneColor => gl::ONE_MINUS_SRC1_COLOR,
+            LinearBlendingFactor::OneMinusSourceOneAlpha => gl::ONE_MINUS_SRC1_ALPHA,
         }
     }
 }
